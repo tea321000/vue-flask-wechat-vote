@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>用户注册</title>
+	<link rel="stylesheet" type="text/css" href="/static/easyui/themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/static/easyui/themes/mobile.css">
+	<link rel="stylesheet" type="text/css" href="/static/easyui/themes/color.css"> 
+	<link rel="stylesheet" type="text/css" href="/static/easyui/themes/icon.css">
+	<script type="text/javascript" src="/static/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/static/easyui/jquery.easyui.mobile.js"></script>
+	<script type="text/javascript" src="/static/easyui/locale/easyui-lang-zh_CN.js"></script>
+
+</head>
+<body>
+	<div class="easyui-navpanel" style="position:relative;padding:20px">
+		<header>
+			<div class="m-toolbar">
+				<div class="m-left">
+					<a href="javascript:void(0)" class="easyui-linkbutton c1" plain="true" outline="true" style="width:60px" onclick="submitForm()">提交</a>
+				</div>
+				<div class="m-title">用户注册</div>
+				<div class="m-right">
+					<a href="javascript:void(0)" class="easyui-linkbutton c2" plain="true" outline="true" onclick="$('#ff').form('reset')" style="width:60px">重置</a>
+				</div>
+			</div>
+		</header>
+		<form id="ff" method="post" data-options="novalidate:true">
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox" label="编号/学号:" prompt="如：1500310101" style="width:100%" data-options="required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-textbox" label="姓名:" prompt="如：梁世维" style="width:100%" data-options="required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-datebox" label="生日:" prompt="如：1997-01-01" data-options="editable:false,panelWidth:220,panelHeight:240,iconWidth:30" style="width:100%" data-options="required:true,validType:'email'">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-passwordbox" label="密码:" prompt="如：123456" style="width:100%" data-options="required:true">
+			</div>
+			<div style="margin-bottom:10px">
+				<input class="easyui-numberbox" label="电话:" prompt="如：13000000000" style="width:100%">
+			</div>
+			<div style="margin-bottom:10px">
+				<select id="role" class="easyui-combobox" label="角色:" name="role" data-options="editable:false,panelHeight:'auto'" style="width:30%" data-options="required:true">
+					<option value="student">学生</option>
+					<option value="teacher">老师</option>
+				</select>
+			</div>
+			
+		</form>
+		<script>
+		function submitForm(){
+			$('#ff').form('submit',{
+				onSubmit:function(){
+					return $(this).form('enableValidation').form('validate');
+				}
+			});
+		}
+		</script>
+	</div>
+</body>
+</html>
